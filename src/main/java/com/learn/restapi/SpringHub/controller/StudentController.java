@@ -20,7 +20,6 @@ public class StudentController {
 
     @GetMapping("/get")
     public StudentResponse getStudent(){
-        //return "Hello Student";
         StudentResponse studentResponse = new StudentResponse(1L, "robert", "broon");
         return studentResponse;
     }
