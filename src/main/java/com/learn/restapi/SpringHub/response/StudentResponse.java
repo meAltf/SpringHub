@@ -1,6 +1,7 @@
 package com.learn.restapi.SpringHub.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StudentResponse {
 
@@ -10,8 +11,13 @@ public class StudentResponse {
     @JsonIgnore
     private Long id;
 
+    /**
+     * @JsonProeprty change the name, like that you want to see in response of API
+     */
+    @JsonProperty("first_name")
     private String firstName;
 
+    @JsonProperty("last_name")
     private String lastName;
 
     public StudentResponse(long id, String firstName, String lastName){
