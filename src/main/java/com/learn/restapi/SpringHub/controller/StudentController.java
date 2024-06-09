@@ -1,5 +1,6 @@
 package com.learn.restapi.SpringHub.controller;
 
+import com.learn.restapi.SpringHub.response.StudentResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +19,9 @@ public class StudentController {
     private String appName;
 
     @GetMapping("/get")
-    public String getStudent(){
+    public StudentResponse getStudent(){
         //return "Hello Student";
-        return appName;
+        StudentResponse studentResponse = new StudentResponse(1, "robert", "broon");
+        return studentResponse;
     }
 }
