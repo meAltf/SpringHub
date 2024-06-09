@@ -2,27 +2,37 @@ package com.learn.restapi.SpringHub.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.learn.restapi.SpringHub.entity.Student;
 import lombok.*;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 //@NoArgsConstructor
 public class StudentResponse {
 
     /**
      * @JsonIgnore- skip this field in response of API
      */
-    @JsonIgnore
+    //@JsonIgnore
     private Long id;
 
     /**
      * @JsonProeprty change the name, like that you want to see in response of API
      */
-    @JsonProperty("first_name")
+   // @JsonProperty("first_name")
     private String firstName;
 
-    @JsonProperty("last_name")
+    //@JsonProperty("last_name")
     private String lastName;
+
+    private String email;
+
+    public StudentResponse(Student student){
+        this.id = student.getId();
+        this.firstName = student.getFirstName();
+        this.lastName = student.getLastName();
+        this.email = student.getEmail();
+    }
 
 
 }
