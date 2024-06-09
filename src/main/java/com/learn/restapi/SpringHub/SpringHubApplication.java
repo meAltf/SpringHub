@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 //@ComponentScan("com.learn.SpringHub.*")
-@ComponentScan({"com.learn.SpringHub.controller", "com.learn.SpringHub.service"})
+//@ComponentScan({"com.learn.SpringHub.controller", "com.learn.SpringHub.service"})
 public class SpringHubApplication {
 
 	public static void main(String[] args) {
