@@ -1,7 +1,13 @@
 package com.learn.restapi.SpringHub.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class StudentResponse {
 
+    /**
+     * @JsonIgnore- skip this field in response of API
+     */
+    @JsonIgnore
     private Long id;
 
     private String firstName;
