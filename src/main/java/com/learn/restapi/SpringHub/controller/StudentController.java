@@ -2,6 +2,7 @@ package com.learn.restapi.SpringHub.controller;
 
 import com.learn.restapi.SpringHub.entity.Student;
 import com.learn.restapi.SpringHub.request.CreateStudentRequest;
+import com.learn.restapi.SpringHub.request.UpdateStudentRequest;
 import com.learn.restapi.SpringHub.response.StudentResponse;
 import com.learn.restapi.SpringHub.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,13 @@ public class StudentController {
     @PostMapping("/createStudent")
     public StudentResponse createStudent(@RequestBody CreateStudentRequest createStudentRequest) {
         Student student = studentService.createStudent(createStudentRequest);
+
+        return new StudentResponse(student);
+    }
+
+    @PutMapping("/updateStudent")
+    public StudentResponse updateStudent(@RequestBody UpdateStudentRequest updateStudentRequest) {
+        Student student = studentService.updateStudent(updateStudentRequest);
 
         return new StudentResponse(student);
     }
