@@ -1,13 +1,14 @@
 package com.learn.restapi.SpringHub.entity;
 
+import com.learn.restapi.SpringHub.request.CreateStudentRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CollectionId;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name="student")
 public class Student {
@@ -25,4 +26,10 @@ public class Student {
 
     @Column(name = "email")
     private String email;
+
+    public Student(CreateStudentRequest createStudentRequest){
+        this.firstName = createStudentRequest.getFirstName();
+        this.lastName = createStudentRequest.getLastName();
+        this.email = createStudentRequest.getEmail();
+    }
 }

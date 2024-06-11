@@ -1,19 +1,18 @@
 package com.learn.restapi.SpringHub.controller;
 
 import com.learn.restapi.SpringHub.entity.Student;
+import com.learn.restapi.SpringHub.request.CreateStudentRequest;
 import com.learn.restapi.SpringHub.response.StudentResponse;
 import com.learn.restapi.SpringHub.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/student/")
+@RequestMapping("/api/student")
 public class StudentController {
 
     /**
@@ -42,6 +41,13 @@ public class StudentController {
             studentResponseList.add(new StudentResponse(student));
         });
         return studentResponseList;
+    }
+
+    @PostMapping("/createStudent")
+    public StudentResponse createStudent(@RequestBody CreateStudentRequest createStudentRequest) {
+        Student student = studentService.createStudent(createStudentRequest);
+
+        return new StudentResponse(student);
     }
 
 
