@@ -58,5 +58,17 @@ public class StudentController {
         return new StudentResponse(student);
     }
 
+    /*
+    No need to speicify under requestparam or pathvariable "id", if it matching or you are going to give exact name
+     */
+    @DeleteMapping("/deleteStudent")
+    public String deleteStudentR(@RequestParam("id") Long id) {
+        return studentService.deleteStudent(id);
+    }
+
+    @DeleteMapping("/deleteStudent/{id}")
+    public String deleteStudentP(@PathVariable("id") Long id) {
+        return studentService.deleteStudent(id);
+    }
 
 }
