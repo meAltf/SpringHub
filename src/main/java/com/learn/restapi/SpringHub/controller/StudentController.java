@@ -6,11 +6,12 @@ import com.learn.restapi.SpringHub.request.InQueryRequest;
 import com.learn.restapi.SpringHub.request.UpdateStudentRequest;
 import com.learn.restapi.SpringHub.response.StudentResponse;
 import com.learn.restapi.SpringHub.service.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,11 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
+    /**
+     * Error < Warn < Info < Debug < Trace
+     */
+    Logger logger = LoggerFactory.getLogger(StudentController.class);
+
     @Deprecated
 //    @GetMapping("/get")
 //    public StudentResponse getStudent(){
@@ -38,6 +44,13 @@ public class StudentController {
 
     @GetMapping("/getAllStudent")
     public List<StudentResponse> getAllStudent() {
+
+        logger.error("Inside Error");
+        logger.warn("Inside warn");
+        logger.info("Inside Info");
+        logger.debug("Inside debug");
+        logger.debug("Inside Trace");
+
         List<Student> studentList = studentService.getAllStudent();
         List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
         studentList.stream().forEach(student -> {
@@ -172,6 +185,13 @@ public class StudentController {
 
     @GetMapping("/getByCity/{city}")
     public List<StudentResponse> getAllByCity(@PathVariable String city){
+
+        logger.error("Inside Error");
+        logger.warn("Inside warn");
+        logger.info("Inside Info");
+        logger.debug("Inside debug");
+        logger.debug("Inside Trace");
+
         List<Student> studentList = studentService.getAllByCity(city);
 
         List<StudentResponse> studentResponseList = new ArrayList<>();
