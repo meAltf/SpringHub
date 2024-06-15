@@ -106,6 +106,7 @@ public class StudentService {
     }
 
     public List<Student> getAllByCity(String city) {
-        return studentRepository.findByAddressCityName(city);
+        //return studentRepository.findByAddressCityName(city);
+        return studentRepository.getByAddressCityName(city);
     }
 }

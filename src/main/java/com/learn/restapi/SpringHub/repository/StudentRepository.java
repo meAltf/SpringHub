@@ -65,4 +65,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
      * findByAddressCityName- that name exactly match with address class field - cityName not city only
      */
     List<Student> findByAddressCityName(String city);
+
+    @Query("FROM Student s INNER JOIN Address a ON s.address.id = a.id WHERE cityName = :cityName")
+    List<Student> getByAddressCityName(String cityName);
 }
