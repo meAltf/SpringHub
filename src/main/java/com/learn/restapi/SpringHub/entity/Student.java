@@ -30,7 +30,12 @@ public class Student {
     /**
      * joining Address table to Student table based on address_id
      */
-    @OneToOne
+    /**
+     * by default fetchType is EAGER
+     * FetchType.LAZY is a useful strategy to optimize performance by delaying the loading of related entities
+     * until they are needed
+     */
+    @OneToOne(fetch = FetchType.LAZY) // use it carefully, may LazyInitializationException , some potential issues as well
     @JoinColumn(name = "address_id")
     private Address address;
 
