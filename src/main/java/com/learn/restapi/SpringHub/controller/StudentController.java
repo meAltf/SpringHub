@@ -44,13 +44,6 @@ public class StudentController {
 
     @GetMapping("/getAllStudent")
     public List<StudentResponse> getAllStudent() {
-
-        logger.error("Inside Error");
-        logger.warn("Inside warn");
-        logger.info("Inside Info");
-        logger.debug("Inside debug");
-        logger.debug("Inside Trace");
-
         List<Student> studentList = studentService.getAllStudent();
         List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
         studentList.stream().forEach(student -> {
