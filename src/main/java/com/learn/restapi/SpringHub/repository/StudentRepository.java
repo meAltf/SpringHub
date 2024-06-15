@@ -1,5 +1,6 @@
 package com.learn.restapi.SpringHub.repository;
 
+import com.learn.restapi.SpringHub.entity.Address;
 import com.learn.restapi.SpringHub.entity.Student;
 import com.learn.restapi.SpringHub.request.InQueryRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -59,4 +60,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Transactional
     @Query("DELETE FROM Student WHERE firstName = :firstName")
     Integer deleteByFirstName(String firstName);
+
+    /**
+     * findByAddressCityName- that name exactly match with address class field - cityName not city only
+     */
+    List<Student> findByAddressCityName(String city);
 }

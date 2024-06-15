@@ -104,4 +104,8 @@ public class StudentService {
     public Integer deleteStudentWithJpql(String firstName) {
         return studentRepository.deleteByFirstName(firstName);
     }
+
+    public List<Student> getAllByCity(String city) {
+        return studentRepository.findByAddressCityName(city);
+    }
 }

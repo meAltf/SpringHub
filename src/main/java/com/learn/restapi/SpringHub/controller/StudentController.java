@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -168,5 +169,17 @@ public class StudentController {
     public String deleteStudent(@PathVariable String firstName) {
         return studentService.deleteStudentWithJpql(firstName) + " Student(s) updated";
     }
+
+    @GetMapping("/getByCity/{city}")
+    public List<StudentResponse> getAllByCity(@PathVariable String city){
+        List<Student> studentList = studentService.getAllByCity(city);
+
+        List<StudentResponse> studentResponseList = new ArrayList<>();
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+        return studentResponseList;
+    }
+
 
 }
