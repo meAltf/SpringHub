@@ -79,4 +79,8 @@ public class StudentService {
     public List<Student> getAllwithLike(String lastName) {
         return studentRepository.findByLastNameContains(lastName);
     }
+
+    public List<Student> getAllStartsWith(String lastName) {
+        return studentRepository.findByLastNameStartsWith(lastName);
+    }
 }
