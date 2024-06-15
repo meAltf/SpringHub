@@ -164,4 +164,9 @@ public class StudentController {
         return studentService.updateStudentWithJpql(id, firstName) + " Student(s) updated";
     }
 
+    @DeleteMapping("/deleteByFirstName/{firstName}")
+    public String deleteStudent(@PathVariable String firstName) {
+        return studentService.deleteStudentWithJpql(firstName) + " Student(s) updated";
+    }
+
 }
