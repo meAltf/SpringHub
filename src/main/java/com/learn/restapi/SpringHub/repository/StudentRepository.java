@@ -1,6 +1,7 @@
 package com.learn.restapi.SpringHub.repository;
 
 import com.learn.restapi.SpringHub.entity.Student;
+import com.learn.restapi.SpringHub.request.InQueryRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +26,5 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     List<Student> findByFirstNameOrLastName(String firstName, String lastName);
 
+    List<Student> findByFirstNameIn(List<String> firstNames);
 }

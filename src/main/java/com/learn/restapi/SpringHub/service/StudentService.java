@@ -3,6 +3,7 @@ package com.learn.restapi.SpringHub.service;
 import com.learn.restapi.SpringHub.entity.Student;
 import com.learn.restapi.SpringHub.repository.StudentRepository;
 import com.learn.restapi.SpringHub.request.CreateStudentRequest;
+import com.learn.restapi.SpringHub.request.InQueryRequest;
 import com.learn.restapi.SpringHub.request.UpdateStudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,5 +56,9 @@ public class StudentService {
 
     public List<Student> getByFirstNameOrLastName(String firstName, String lastName) {
         return studentRepository.findByFirstNameOrLastName(firstName, lastName);
+    }
+
+    public List<Student> getByFirstNameIn(InQueryRequest inQueryRequest) {
+        return studentRepository.findByFirstNameIn(inQueryRequest.getFirstNames());
     }
 }

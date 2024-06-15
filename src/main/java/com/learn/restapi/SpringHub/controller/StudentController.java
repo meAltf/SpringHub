@@ -2,6 +2,7 @@ package com.learn.restapi.SpringHub.controller;
 
 import com.learn.restapi.SpringHub.entity.Student;
 import com.learn.restapi.SpringHub.request.CreateStudentRequest;
+import com.learn.restapi.SpringHub.request.InQueryRequest;
 import com.learn.restapi.SpringHub.request.UpdateStudentRequest;
 import com.learn.restapi.SpringHub.response.StudentResponse;
 import com.learn.restapi.SpringHub.service.StudentService;
@@ -91,6 +92,17 @@ public class StudentController {
     public List<StudentResponse> getByFirstNameOrLastName(@PathVariable String firstName,
                                                           @PathVariable String lastName) {
         List<Student> studentList = studentService.getByFirstNameOrLastName(firstName, lastName);
+        List<StudentResponse> studentResponseList = new ArrayList<>();
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+        return studentResponseList;
+    }
+
+    @GetMapping("/getByFirstNameIn")
+    public List<StudentResponse> getByFirstNameIn(@RequestBody InQueryRequest inQueryRequest) {
+        List<Student> studentList = studentService.getByFirstNameIn(inQueryRequest);
+
         List<StudentResponse> studentResponseList = new ArrayList<>();
         studentList.stream().forEach(student -> {
             studentResponseList.add(new StudentResponse(student));
