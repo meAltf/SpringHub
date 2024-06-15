@@ -27,9 +27,18 @@ public class Student {
     @Column(name = "email")
     private String email;
 
+    /**
+     * @Transient-- @Transient annotation is used to indicate that a field should not be persisted in the database.
+     *  It tells the JPA provider to ignore this field when performing database operations.
+     *  persisted means- saveDataPermanently
+     */
+    @Transient
+    private String fullName;
+
     public Student(CreateStudentRequest createStudentRequest){
         this.firstName = createStudentRequest.getFirstName();
         this.lastName = createStudentRequest.getLastName();
         this.email = createStudentRequest.getEmail();
+        this.fullName = createStudentRequest.getFirstName() + " " + createStudentRequest.getLastName();
     }
 }
