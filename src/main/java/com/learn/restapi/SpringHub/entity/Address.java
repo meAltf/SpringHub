@@ -20,4 +20,7 @@ public class Address {
 
     @Column(name = "city")
     private String cityName;
+
+    @OneToOne(mappedBy = "address")
+    private Student student;
 }

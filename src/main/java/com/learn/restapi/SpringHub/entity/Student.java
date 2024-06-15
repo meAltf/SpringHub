@@ -35,7 +35,8 @@ public class Student {
      * FetchType.LAZY is a useful strategy to optimize performance by delaying the loading of related entities
      * until they are needed
      */
-    @OneToOne(fetch = FetchType.LAZY) // use it carefully, may LazyInitializationException , some potential issues as well
+    //@OneToOne(fetch = FetchType.LAZY) // use it carefully, may LazyInitializationException , some potential issues as well
+    @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
