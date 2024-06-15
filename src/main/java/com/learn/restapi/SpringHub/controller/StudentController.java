@@ -81,4 +81,12 @@ public class StudentController {
         return studentResponseList;
     }
 
+    @GetMapping("/getByFirstNameAndLastName/{firstName}/{lastName}")
+    public StudentResponse getByFirstNameAndLastName(@PathVariable String firstName,
+                                                     @PathVariable String lastName) {
+        return new StudentResponse(studentService.getByFirstNameAndLastName(firstName, lastName));
+    }
+
+    @
+
 }

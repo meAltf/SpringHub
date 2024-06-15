@@ -20,4 +20,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
      */
 
     List<Student> findByfirstName(String firstName);
+
+    Student findByFirstNameAndLastName ( String firstName, String lastName);
 }
