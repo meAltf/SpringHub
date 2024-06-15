@@ -108,12 +108,17 @@ public class StudentController {
 
     @GetMapping("/getByFirstNameIn")
     public List<StudentResponse> getByFirstNameIn(@RequestBody InQueryRequest inQueryRequest) {
+
+        logger.info("inQueryRequest" + inQueryRequest);
         List<Student> studentList = studentService.getByFirstNameIn(inQueryRequest);
 
         List<StudentResponse> studentResponseList = new ArrayList<>();
         studentList.stream().forEach(student -> {
             studentResponseList.add(new StudentResponse(student));
         });
+
+        logger.info("studentResponseList" + studentResponseList);
+
         return studentResponseList;
     }
 
