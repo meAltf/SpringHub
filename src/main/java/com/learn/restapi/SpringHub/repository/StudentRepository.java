@@ -6,6 +6,7 @@ import com.learn.restapi.SpringHub.request.InQueryRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,6 +67,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
      */
     List<Student> findByAddressCityName(String city);
 
-    @Query("FROM Student s INNER JOIN Address a ON s.address.id = a.id WHERE cityName = :cityName")
-    List<Student> getByAddressCityName(String cityName);
+//    @Query("FROM Student s INNER JOIN Address a ON s.address.id = a.id WHERE cityName = :city")
+    @Query("FROM Student WHERE address.cityName = :city")
+    List<Student> getByAddressCityName(@Param("city") String cityName);
 }
