@@ -84,4 +84,8 @@ public class StudentService {
     public List<Student> getAllStartsWith(String lastName) {
         return studentRepository.findByLastNameStartsWith(lastName);
     }
+
+    public Integer updateStudentWithJpql(Long id, String firstName) {
+        return studentRepository.updateFirstName(id, firstName);
+    }
 }
