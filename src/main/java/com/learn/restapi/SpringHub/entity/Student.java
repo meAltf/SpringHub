@@ -28,6 +28,13 @@ public class Student {
     private String email;
 
     /**
+     * joining Address table to Student table based on address_id
+     */
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    /**
      * @Transient-- @Transient annotation is used to indicate that a field should not be persisted in the database.
      *  It tells the JPA provider to ignore this field when performing database operations.
      *  persisted means- saveDataPermanently
