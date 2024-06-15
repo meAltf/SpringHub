@@ -75,4 +75,8 @@ public class StudentService {
         Sort sort = Sort.by(Sort.Direction.ASC, "firstName");
         return studentRepository.findAll(sort);
     }
+
+    public List<Student> getAllwithLike(String lastName) {
+        return studentRepository.findByLastNameContains(lastName);
+    }
 }

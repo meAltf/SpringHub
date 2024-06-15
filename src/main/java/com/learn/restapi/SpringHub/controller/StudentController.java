@@ -135,4 +135,16 @@ public class StudentController {
         return studentResponseList;
     }
 
+    @GetMapping("/like/{lastName}")
+    public List<StudentResponse> getAllWithLike(@PathVariable String lastName) {
+        List<Student> studentList = studentService.getAllwithLike(lastName);
+
+        List<StudentResponse> studentResponseList = new ArrayList<>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+        return studentResponseList;
+    }
+
 }
