@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 //@ComponentScan({"com.learn.SpringHub.controller", "com.learn.SpringHub.service"})
 public class SpringHubApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringHubApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringHubApplication.class, args);
+    }
 
 }

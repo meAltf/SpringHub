@@ -28,7 +28,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     List<Student> findByfirstName(String firstName);
 
-    Student findByFirstNameAndLastName ( String firstName, String lastName);
+    Student findByFirstNameAndLastName(String firstName, String lastName);
 
     List<Student> findByFirstNameOrLastName(String firstName, String lastName);
 
@@ -44,6 +44,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     /**
      * If you want to change the name in query other than what you put in variableName so use, @Param
      * like firstName = :firstName but you want to written like this- firstName = :firstname so in variable side write -
+     *
      * @Param("firstname") String firstName
      */
     @Query("FROM Student WHERE firstName = :firstName AND lastName = :lastName")

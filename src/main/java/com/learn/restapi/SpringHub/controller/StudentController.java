@@ -36,7 +36,7 @@ public class StudentController {
 //    }
 
     @GetMapping("/getAllStudent")
-    public List<StudentResponse> getAllStudent(){
+    public List<StudentResponse> getAllStudent() {
         List<Student> studentList = studentService.getAllStudent();
         List<StudentResponse> studentResponseList = new ArrayList<StudentResponse>();
         studentList.stream().forEach(student -> {
@@ -73,7 +73,7 @@ public class StudentController {
     }
 
     @GetMapping("/getByFirstName/{firstName}")
-    public List<StudentResponse> getByFirstName(@PathVariable String firstName){
+    public List<StudentResponse> getByFirstName(@PathVariable String firstName) {
         List<Student> studentList = studentService.getByFirstName(firstName);
         List<StudentResponse> studentResponseList = new ArrayList<>();
         studentList.stream().forEach(student -> {
@@ -148,8 +148,8 @@ public class StudentController {
     }
 
     @GetMapping("/startsWith/{lastName}")
-    public List<StudentResponse> getAllStartsWith(@PathVariable String lastName){
-        List<Student>  studentList = studentService.getAllStartsWith(lastName);
+    public List<StudentResponse> getAllStartsWith(@PathVariable String lastName) {
+        List<Student> studentList = studentService.getAllStartsWith(lastName);
 
         List<StudentResponse> studentResponseList = new ArrayList<>();
 
@@ -160,7 +160,7 @@ public class StudentController {
     }
 
     @PutMapping("/updateFirstName/{id}/{firstName}")
-    public String updateStudentWithJpql(@PathVariable Long id, @PathVariable String firstName){
+    public String updateStudentWithJpql(@PathVariable Long id, @PathVariable String firstName) {
         return studentService.updateStudentWithJpql(id, firstName) + " Student(s) updated";
     }
 

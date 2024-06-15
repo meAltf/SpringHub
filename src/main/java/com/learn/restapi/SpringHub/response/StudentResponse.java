@@ -19,7 +19,7 @@ public class StudentResponse {
     /**
      * @JsonProeprty change the name, like that you want to see in response of API
      */
-   // @JsonProperty("first_name")
+    // @JsonProperty("first_name")
     private String firstName;
 
     //@JsonProperty("last_name")
@@ -29,7 +29,7 @@ public class StudentResponse {
 
     private String fullName;
 
-    public StudentResponse(Student student){
+    public StudentResponse(Student student) {
         this.id = student.getId();
         this.firstName = student.getFirstName();
         this.lastName = student.getLastName();

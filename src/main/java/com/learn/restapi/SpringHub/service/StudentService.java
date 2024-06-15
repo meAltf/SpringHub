@@ -19,18 +19,18 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
-    public List<Student> getAllStudent(){
+    public List<Student> getAllStudent() {
         return studentRepository.findAll();
     }
 
-    public Student createStudent(CreateStudentRequest createStudentRequest){
+    public Student createStudent(CreateStudentRequest createStudentRequest) {
         Student student = new Student(createStudentRequest);
 
         student = studentRepository.save(student);
         return student;
     }
 
-    public Student updateStudent(UpdateStudentRequest updateStudentRequest){
+    public Student updateStudent(UpdateStudentRequest updateStudentRequest) {
         Student student = studentRepository.findById(updateStudentRequest.getId()).get();
 
         if (!updateStudentRequest.getFirstName().isEmpty() && updateStudentRequest.getFirstName() != null) {
@@ -49,11 +49,11 @@ public class StudentService {
         return "Student has been deleted successfully";
     }
 
-    public List<Student> getByFirstName ( String firstName){
+    public List<Student> getByFirstName(String firstName) {
         return studentRepository.findByfirstName(firstName);
     }
 
-    public Student getByFirstNameAndLastName( String firstName, String lastName){
+    public Student getByFirstNameAndLastName(String firstName, String lastName) {
         //return  studentRepository.findByFirstNameAndLastName(firstName, lastName);
         return studentRepository.getByFirstNameAndLastName(firstName, lastName);
     }
