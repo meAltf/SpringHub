@@ -1,6 +1,8 @@
 package com.learn.restapi.SpringHub.service;
 
+import com.learn.restapi.SpringHub.entity.Address;
 import com.learn.restapi.SpringHub.entity.Student;
+import com.learn.restapi.SpringHub.repository.AddressRepository;
 import com.learn.restapi.SpringHub.repository.StudentRepository;
 import com.learn.restapi.SpringHub.request.CreateStudentRequest;
 import com.learn.restapi.SpringHub.request.InQueryRequest;
@@ -19,6 +21,9 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
+    @Autowired
+    AddressRepository addressRepository;
+
     public List<Student> getAllStudent() {
         return studentRepository.findAll();
     }
@@ -26,6 +31,13 @@ public class StudentService {
     public Student createStudent(CreateStudentRequest createStudentRequest) {
         Student student = new Student(createStudentRequest);
 
+        Address address = new Address();
+        address.setStreetName(createStudentRequest.getStreet());
+        address.setCityName(createStudentRequest.getCity());
+
+        address = addressRepository.save(address);
+
+        student.setAddress(address);
         student = studentRepository.save(student);
         return student;
     }

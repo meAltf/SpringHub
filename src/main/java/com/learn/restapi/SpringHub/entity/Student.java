@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class Student {
 
     @Id
@@ -39,13 +39,14 @@ public class Student {
      *  It tells the JPA provider to ignore this field when performing database operations.
      *  persisted means- saveDataPermanently
      */
-    @Transient
-    private String fullName;
+    /**
+     * @Transient private String fullName;
+     */
 
-    public Student(CreateStudentRequest createStudentRequest){
+    public Student(CreateStudentRequest createStudentRequest) {
         this.firstName = createStudentRequest.getFirstName();
         this.lastName = createStudentRequest.getLastName();
         this.email = createStudentRequest.getEmail();
-        this.fullName = createStudentRequest.getFirstName() + " " + createStudentRequest.getLastName();
+        //this.fullName = createStudentRequest.getFirstName() + " " + createStudentRequest.getLastName();
     }
 }

@@ -14,4 +14,8 @@ public class CreateStudentRequest {
     private String lastName;
 
     private String email;
+
+    private String street;
+
+    private String city;
 }
