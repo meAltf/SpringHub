@@ -110,4 +110,17 @@ public class StudentController {
         return studentResponseList;
     }
 
+    @GetMapping("/getAllWithPagination")
+    public List<StudentResponse> getAllStudentWithPagination(@RequestParam int pageNo,
+                                                             @RequestParam int pageSize) {
+        List<Student> studentList = studentService.getAllStudentWithPagination(pageNo, pageSize);
+
+        List<StudentResponse> studentResponseList = new ArrayList<>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+        return studentResponseList;
+    }
+
 }
